@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rainDrop {
+    position: absolute;
+    width: 50px;
+    border-radius: 1px;
+    animation: fallPickles 5s linear infinite;
+    z-index: -50;
+    object-fit: cover;
+}
+
+.pickleGif {
+    position: absolute;
+    top: 25%;
+    width: 150px;
+    z-index: 50;
+    object-fit: cover;
+    animation: walk 5s linear forwards;
+}
+
+.chatBalloon {
+    position: absolute;
+    width: 11rem;
+    height: 6rem;
+    z-index: 50;
+    top: 4rem;
+    left: 80%;
+    background-color: aliceblue;
+    border-radius: .50rem;
+    border: 1px solid #fff000;
+    font-size: .75rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+
+.pickleCool {
+    position: absolute;
+    width: 150px;
+    left: 90%;
+    z-index: 50;
+    animation: fallPickleCool 5s linear forwards;
+}
+
+.chatBalloonCool {
+    position: absolute;
+    width: 11rem;
+    height: 6rem;
+    z-index: 50;
+    top: 12rem;
+    left: 80%;
+    background-color: aliceblue;
+    border-radius:.50rem;
+    border: 1px solid #fff000;
+    font-size:.75rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+
+.lastPickle {
+    position: absolute;
+    width: 100px;
+    transform: translateY(-800px);
+    left: 90%;
+    animation: spawnLastPickle 1s linear forwards;
+}
+
+.chatBalloonLast {
+    position: absolute;
+    width: 11rem;
+    height: 8rem;
+    z-index: 50;
+    top: 190rem;
+    left: 80%;
+    background-color: aliceblue;
+    border-radius:.50rem;
+    border: 1px solid #fff000;
+    font-size:.75rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+
+.active {
+    color: #1e40af;
+    background-color: #93c5fd;
+    transition: all .2s ease;
+    border-radius: 1rem;
+    padding: .75rem;
+}
+
+#logo, .card-back {
+    backface-visibility: hidden;
+    transition: transform .5s;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    position: fixed;
+    display: flex;
+    height: 100%;
+    left: 35%;
+    top: 0;
+    z-index: 1000;
+}
+
+.card.flipped #logo {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+
+#gameCanvas {
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: relative;
+}
+
+.buttonExit {
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    fill: #cccccc;
+}
+
+.buttonExit:hover {
+    fill: #7e7e7e;
+}
+
+.buttonExit:active {
+    fill: #5e5e5e;
+}
+
+.animate-blink {
+    border-right: 2px solid;
+    animation: blink .7s steps(2, start) forwards;
+}
+
+@keyframes blink {
+    0%, 100% {
+        border-right-color: transparent;
+    }
+    50% {
+        border-right-color: currentColor;
+    }
+}
+
+@keyframes fallPickles {
+    0% {
+        top: -20px;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes walk {
+    0% {
+        left: -8rem;
+    }
+    100% {
+        left: 90%;
+    }
+}
+
+@keyframes vibrationWarning {
+    0% {
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(10deg);
+    }
+    66% {
+        transform: rotate(-10deg);
+    }
+    99% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fallPickleCool {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 20%;
+    }
+}
+
+@keyframes spawnLastPickle {
+    0% {
+        transform: translate(800px, -800px);
+    }
+    100% {
+        transform: translateX(0, -800px);
+    }
+}
