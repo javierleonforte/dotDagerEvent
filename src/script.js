@@ -1,5 +1,7 @@
 const body = document.querySelector('body');
-const nav = document.querySelector('divNav');
+const nav = document.querySelector('nav');
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
 const rainContainer = document.getElementById('rainPickles');
 const sectionZero = document.getElementById('section0');
 const sectionOne = document.getElementById('section1');
@@ -23,9 +25,43 @@ const divGame = document.createElement('div');
 const canvas = document.createElement('canvas');
 const button = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
+const mediaQuery = window.matchMedia('(max-width: 1600px)');
+
 const chatBalloonText = 'Hola, te presento a Mariano, conocido en el mundo digital como Dot Dager, este tipo esta obsesionado conmigo...';
 const chatBalloonCoolText = '¡PORONGA! A este tipo le encanta hacer cosas, apreta la flechita y vas a ver que este chabon esta loquito.';
 const chatBalloonLastText = '¡Llegaste al final! Ante cualquier consulta SERIA puedes dejar un mensaje acá para nuestro querido Dager. Si todo esto te pareció aburrido, dale click al logo *guiño*.';
+
+function handleMediaQueryChange(event) {
+    const existingH1 = document.querySelector('#resolution-warning')
+
+    if (event.matches) {
+        nav.style.display = 'none';
+        main.style.display = 'none';
+        footer.style.display = 'none';
+        body.classList.add('flex', 'justify-center', 'items-center', 'bg-gray-600', 'bg-none')
+        
+        if (!existingH1) {
+        const h1 = document.createElement('h1');
+        h1.id ='resolution-warning';
+        h1.classList.add('text-5xl', 'text-center', 'text-gray-300');
+        h1.textContent = 'La version para esta resolucion de pantalla no está disponible de momento...';
+        body.appendChild(h1);
+        }
+    } else {
+        nav.style.display = 'flex';
+        main.style.display = 'block';
+        footer.style.display = 'block';
+        body.classList.remove('flex', 'justify-center', 'items-center', 'bg-gray-600', 'bg-none');
+
+        if (existingH1) {
+            body.removeChild(existingH1);
+        }
+    }
+}
+
+handleMediaQueryChange(mediaQuery);
+
+mediaQuery.addEventListener('change', handleMediaQueryChange);
 
 function createRain() {
     const drop = document.createElement('img');
