@@ -638,14 +638,6 @@ video {
   z-index: -1000;
 }
 
-.z-\[5000\] {
-  z-index: 5000;
-}
-
-.z-\[10000\] {
-  z-index: 10000;
-}
-
 .m-0 {
   margin: 0px;
 }
@@ -674,6 +666,10 @@ video {
 
 .ml-\[40rem\] {
   margin-left: 40rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
 }
 
 .mr-36 {
@@ -746,10 +742,6 @@ video {
 
 .h-\[70vh\] {
   height: 70vh;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .h-screen {
@@ -828,6 +820,10 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-default {
+  cursor: default;
 }
 
 .cursor-pointer {
@@ -1060,6 +1056,11 @@ video {
   letter-spacing: -1.5rem;
 }
 
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
 .text-blue-300 {
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity, 1));
@@ -1204,6 +1205,10 @@ video {
   text-shadow: 1px 1px 3px #8b5cf6;
 }
 
+.\[text-shadow\:1px_1px_3px_\#ffffff\] {
+  text-shadow: 1px 1px 3px #ffffff;
+}
+
 .\[text-shadow\:1px_1px_5px_\#ffffff90\] {
   text-shadow: 1px 1px 5px #ffffff90;
 }
@@ -1245,6 +1250,7 @@ video {
   font-size: .75rem;
   line-height: 1rem;
   font-weight: bold;
+  cursor: default;
 }
 
 .pickleCool {
@@ -1268,6 +1274,7 @@ video {
   font-size:.75rem;
   line-height: 1rem;
   font-weight: bold;
+  cursor: default;
 }
 
 .lastPickle {
@@ -1291,6 +1298,7 @@ video {
   font-size:.75rem;
   line-height: 1rem;
   font-weight: bold;
+  cursor: default;
 }
 
 .active {
@@ -1353,6 +1361,38 @@ video {
 .animate-blink {
   border-right: 2px solid;
   animation: blink .7s steps(2, start) forwards;
+}
+
+.rebote {
+  animation: rebote .5s cubic-bezier(0, -1.55, 0.27, 2.55);
+  animation-fill-mode: forwards;
+}
+
+@keyframes rebote {
+  0% {
+    transform: scale(1);
+    /* Tamaño normal */
+  }
+
+  30% {
+    transform: scale(1.8);
+    /* Tamaño grande para el primer rebote */
+  }
+
+  50% {
+    transform: scale(0.8);
+    /* Tamaño pequeño para simular el retroceso */
+  }
+
+  80% {
+    transform: scale(1.2);
+    /* Rebote más suave */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Vuelve al tamaño normal */
+  }
 }
 
 @keyframes blink {

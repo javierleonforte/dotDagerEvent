@@ -33,6 +33,7 @@
     font-size: .75rem;
     line-height: 1rem;
     font-weight: bold;
+    cursor: default;
 }
 
 .pickleCool {
@@ -56,6 +57,7 @@
     font-size:.75rem;
     line-height: 1rem;
     font-weight: bold;
+    cursor: default;
 }
 
 .lastPickle {
@@ -79,6 +81,7 @@
     font-size:.75rem;
     line-height: 1rem;
     font-weight: bold;
+    cursor: default;
 }
 
 .active {
@@ -141,6 +144,29 @@
 .animate-blink {
     border-right: 2px solid;
     animation: blink .7s steps(2, start) forwards;
+}
+
+.rebote {
+    animation: rebote .5s cubic-bezier(0, -1.55, 0.27, 2.55);
+    animation-fill-mode: forwards;
+}
+
+@keyframes rebote {
+    0% {
+        transform: scale(1); /* Tamaño normal */
+    }
+    30% {
+        transform: scale(1.8); /* Tamaño grande para el primer rebote */
+    }
+    50% {
+        transform: scale(0.8); /* Tamaño pequeño para simular el retroceso */
+    }
+    80% {
+        transform: scale(1.2); /* Rebote más suave */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño normal */
+    }
 }
 
 @keyframes blink {

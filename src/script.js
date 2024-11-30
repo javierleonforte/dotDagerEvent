@@ -11,6 +11,7 @@ const buttons = document.querySelectorAll('#divNav button');
 const sections = document.querySelectorAll('section');
 const flash = document.getElementById('flash');
 const bgBlack = document.getElementById('bgBlack');
+const title = document.querySelectorAll('#title span');
 
 const card = document.querySelector('.card');
 const logo = document.getElementById('logo');
@@ -43,7 +44,7 @@ function handleMediaQueryChange(event) {
         if (!existingH1) {
         const h1 = document.createElement('h1');
         h1.id ='resolution-warning';
-        h1.classList.add('text-5xl', 'text-center', 'text-gray-300');
+        h1.classList.add('text-5xl', 'text-center', 'text-gray-300', 'cursor-default');
         h1.textContent = 'La version para esta resolucion de pantalla no está disponible de momento...';
         body.appendChild(h1);
         }
@@ -62,6 +63,16 @@ function handleMediaQueryChange(event) {
 handleMediaQueryChange(mediaQuery);
 
 mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+title.forEach(letter => {
+    letter.addEventListener('mouseover', () => {
+        letter.classList.add('rebote');
+    });
+    letter.addEventListener('animationend', () => {
+        letter.classList.remove('rebote');
+    });
+})
+
 
 function createRain() {
     const drop = document.createElement('img');
